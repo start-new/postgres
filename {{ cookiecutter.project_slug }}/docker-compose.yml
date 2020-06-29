@@ -1,0 +1,33 @@
+
+version: "3.7"
+services:
+    postgres:
+        container_name: postgres_container
+        image: postgres:{{ cookiecutter.postgres_version }}
+        working_dir: /app
+        restart: always
+        ports:
+            - "{{ cookiecutter.postgres_port }}:5432"
+        environment:
+            POSTGRES_USER: {{ cookiecutter.postgres_user }}
+            POSTGRES_PASSWORD: {{ cookiecutter.postgres_password }}
+            POSTGRES_DB: {{ cookiecutter.postgres_dbname }}
+            PGDATA: /data/postgres
+        volumes:
+            - "./postgres:/data/postgres"
+
+    {% if cookiecutter.use_pgadmin -%}
+    pgadmin:
+        container_name: pgadmin_container
+        image: dpage/pgadmin4
+        environment:
+            PGADMIN_DEFAULT_EMAIL: {{ cookiecutter.pgadmin_email }}
+            PGADMIN_DEFAULT_PASSWORD: {{ cookiecutter.pgadmin_password }}
+        volumes:
+            - "./pgadmin:/root/.pgadmin"
+        ports:
+            - "{{ cookiecutter.pgadmin_port }}:80"
+        networks:
+            - postgres
+        restart: always
+{% endif %}
