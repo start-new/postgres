@@ -1,16 +1,13 @@
-import os
 import shutil
 
 
 def remove_pgadmin_dir():
-    shutil.rmtree(Pathlib("{{ cookiecutter.project_slug }}") / "pgadmin")
+    shutil.rmtree("pgadmin")
+
 
 def main():
-    {% if cookiecutter.use_pgadmin -%}
-    remove_pgadmin_dir()
-    {% else -%}
-    pass
-    {-% endif %} 
+    if "{{ cookiecutter.use_pgadmin }}" != "y":
+        remove_pgadmin_dir()
 
 
 if __name__ == "__main__":

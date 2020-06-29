@@ -1,8 +1,7 @@
-
 version: "3.7"
 services:
     postgres:
-        container_name: postgres_container
+        container_name: {{ cookiecutter.project_slug }}_postgres_container
         image: postgres:{{ cookiecutter.postgres_version }}
         working_dir: /app
         restart: always
@@ -12,22 +11,20 @@ services:
             POSTGRES_USER: {{ cookiecutter.postgres_user }}
             POSTGRES_PASSWORD: {{ cookiecutter.postgres_password }}
             POSTGRES_DB: {{ cookiecutter.postgres_dbname }}
-            PGDATA: /data/postgres
         volumes:
-            - "./postgres:/data/postgres"
+            - "./postgres:/var/lib/postgresql"
 
-    {% if cookiecutter.use_pgadmin -%}
+    {%- if cookiecutter.use_pgadmin == "y" %}
+
     pgadmin:
-        container_name: pgadmin_container
+        container_name: {{ cookiecutter.project_slug }}_pgadmin_container
         image: dpage/pgadmin4
         environment:
             PGADMIN_DEFAULT_EMAIL: {{ cookiecutter.pgadmin_email }}
             PGADMIN_DEFAULT_PASSWORD: {{ cookiecutter.pgadmin_password }}
         volumes:
-            - "./pgadmin:/root/.pgadmin"
+            - "./pgadmin:/var/lib/pgadmin"
         ports:
             - "{{ cookiecutter.pgadmin_port }}:80"
-        networks:
-            - postgres
         restart: always
-{% endif %}
+{%- endif %}

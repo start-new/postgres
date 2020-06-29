@@ -1,7 +1,7 @@
 {
     "project_name": "db",
     "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_') }}",
-    "author_email": "thierry@pythonclassmates.org"
+    "author_email": "thierry@pythonclassmates.org",
     "postgres_version": [
         "latest",
         "12",
@@ -12,7 +12,7 @@
     "postgres_port": "7654",
     "postgres_user": "postgres",
     "postgres_password": "postgres",
-    "postgres_dbname": "mydb",
+    "postgres_dbname": "{{ cookiecutter.postgres_user }}",
     "use_pgadmin": "y",
     "pgadmin_email": "{{ cookiecutter.author_email }}",
     "pgadmin_password": "{{ cookiecutter.postgres_password }}",
