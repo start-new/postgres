@@ -1,4 +1,4 @@
-# cookiecutter-postgres
+# Postgresql Cookiecutter template
 
 Automatically generates a basic docker-compose file to install and use the postgresql database in your project, with or without pgadmin to manage it.
 
