@@ -32,5 +32,5 @@ services:
 volumes:
     postgres_{{ cookiecutter.project_slug }}_{{ cookiecutter.postgres_port }}:
 {%- if cookiecutter.use_pgadmin == "y" %}
-    pgadmin_{{ cookiecutter.project_slug }}:
+    pgadmin_{{ cookiecutter.project_slug }}_{{ cookiecutter.postgres_port }}:
 {%- endif %}
