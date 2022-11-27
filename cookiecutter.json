@@ -13,7 +13,7 @@
     "postgres_user": "postgres",
     "postgres_password": "postgres",
     "postgres_dbname": "{{ cookiecutter.postgres_user }}",
-    "use_pgadmin": "y",
+    "use_pgadmin": "n",
     "pgadmin_email": "{{ cookiecutter.author_email }}",
     "pgadmin_password": "{{ cookiecutter.postgres_password }}",
     "pgadmin_port": "8765"
