@@ -1,15 +1,15 @@
 {
     "project_name": "db",
     "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_') }}",
-    "author_email": "thierry@pythonclassmates.org",
+    "author_email": "thierry@placepython.fr",
     "postgres_version": [
         "latest",
-        "12",
-        "11",
-        "10",
-        "9.6"
+        "15",
+        "14",
+        "13",
+        "12"
     ],
-    "postgres_port": "7654",
+    "postgres_port": "5432",
     "postgres_user": "postgres",
     "postgres_password": "postgres",
     "postgres_dbname": "{{ cookiecutter.postgres_user }}",
