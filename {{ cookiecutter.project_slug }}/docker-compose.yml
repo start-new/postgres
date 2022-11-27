@@ -1,4 +1,4 @@
-version: "3.7"
+version: "3.8"
 services:
     postgres:
         container_name: {{ cookiecutter.project_slug }}_postgres_container
@@ -12,9 +12,9 @@ services:
             POSTGRES_PASSWORD: {{ cookiecutter.postgres_password }}
             POSTGRES_DB: {{ cookiecutter.postgres_dbname }}
         volumes:
-            - "./postgres:/var/lib/postgresql"
+            - "postgres_{{ cookiecutter.project_slug }}_{{ cookiecutter.postgres_port }}:/var/lib/postgresql"
 
-    {%- if cookiecutter.use_pgadmin == "y" %}
+{%- if cookiecutter.use_pgadmin == "y" %}
 
     pgadmin:
         container_name: {{ cookiecutter.project_slug }}_pgadmin_container
@@ -27,4 +27,10 @@ services:
         ports:
             - "{{ cookiecutter.pgadmin_port }}:80"
         restart: always
+{%- endif %}
+
+volumes:
+    postgres_{{ cookiecutter.project_slug }}_{{ cookiecutter.postgres_port }}:
+{%- if cookiecutter.use_pgadmin == "y" %}
+    pgadmin_{{ cookiecutter.project_slug }}:
 {%- endif %}
