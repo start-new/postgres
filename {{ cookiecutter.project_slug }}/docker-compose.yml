@@ -1,12 +1,12 @@
 version: "3"
 services:
     postgres:
-        container_name: {{ cookiecutter.project_slug }}_postgres_container_{{ cookiecutter.postgres_port }}
+        container_name: {{ cookiecutter.project_slug }}_postgres_container_{% if cookiecutter.postgres_port %}{{ cookiecutter.postgres_port }}{% else %}!!!SET POSTGRESQL_PORT!!!{% endif %}
         image: postgres:{{ cookiecutter.postgres_version }}
         working_dir: /app
         restart: always
         ports:
-            - "{% if cookiecutter.postgres_port %}{{ cookiecutter.postgres_port }}{% else %}!!!SET POSTGRES_PORT!!!{% endif %}:5432"
+            - "{% if cookiecutter.postgres_port %}{{ cookiecutter.postgres_port }}{% else %}!!!SET POSTGRESQL_PORT!!!{% endif %}:5432"
         environment:
             POSTGRES_USER: {{ cookiecutter.postgres_user }}
             POSTGRES_PASSWORD: {{ cookiecutter.postgres_password }}
@@ -30,7 +30,7 @@ services:
 {%- endif %}
 
 volumes:
-    postgres_{{ cookiecutter.project_slug }}_{{ cookiecutter.postgres_port }}:
+    postgres_{{ cookiecutter.project_slug }}_{% if cookiecutter.postgres_port %}{{ cookiecutter.postgres_port }}{% else %}!!!SET POSTGRESQL_PORT!!!{% endif %}:
 {%- if cookiecutter.use_pgadmin == "y" %}
-    pgadmin_{{ cookiecutter.project_slug }}_{{ cookiecutter.postgres_port }}:
+    pgadmin_{{ cookiecutter.project_slug }}_{% if cookiecutter.postgres_port %}{{ cookiecutter.postgres_port }}{% else %}!!!SET POSTGRESQL_PORT!!!{% endif %}:
 {%- endif %}
