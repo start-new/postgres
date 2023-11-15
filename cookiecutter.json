@@ -13,7 +13,7 @@
     "postgres_password": "placePythonPassword",
     "postgres_dbname": "{{ cookiecutter.project_slug }}",
     "use_pgadmin": false,
-    "postgres_email": "thierry@placepython.fr",
+    "pgadmin_email": "thierry@placepython.fr",
     "pgadmin_password": "{{ cookiecutter.postgres_password }}",
     "pgadmin_port": "8765",
     "__prompts__": {
@@ -32,7 +32,7 @@
         "postgres_password": "Quel est le mot de passe que vous souhaitez utiliser pour vous connecter à postgresql ? ",
         "postgres_dbname": "Quel est le nom de votre base de données ? ",
         "use_pgadmin": "Voulez-vous installer également PGAdmin ? ",
-        "postgres_email": "Quel est l'email pour la connexion à PGAdmin ? ",
+        "pgadmin_email": "Quel est l'email pour la connexion à PGAdmin ? ",
         "pgadmin_password": "Quel est votre mot de passe pour la connection à PGAdmin ? ",
         "pgadmin_port": "Quel est le port utilisé par PGAdmin ?"
     }
