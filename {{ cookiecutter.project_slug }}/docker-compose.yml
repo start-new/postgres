@@ -6,7 +6,7 @@ services:
         working_dir: /app
         restart: always
         ports:
-            - "{% if cookiecutter.postgres_port %}{{ cookiecutter.postgres_port }}{% else %}!!!POSTGRES_PORT!!!{% endif %}:5432"
+            - "{% if cookiecutter.postgres_port %}{{ cookiecutter.postgres_port }}{% else %}!!!SET POSTGRES_PORT!!!{% endif %}:5432"
         environment:
             POSTGRES_USER: {{ cookiecutter.postgres_user }}
             POSTGRES_PASSWORD: {{ cookiecutter.postgres_password }}
