@@ -14,7 +14,7 @@ services:
         volumes:
             - "postgres_{{ cookiecutter.project_slug }}_{{ cookiecutter.postgres_port }}:/var/lib/postgresql/data/"
 
-{%- if cookiecutter.use_pgadmin == "y" %}
+{%- if cookiecutter.use_pgadmin %}
 
     pgadmin:
         container_name: {{ cookiecutter.project_slug }}_pgadmin_container
@@ -31,6 +31,6 @@ services:
 
 volumes:
     postgres_{{ cookiecutter.project_slug }}_{% if cookiecutter.postgres_port %}{{ cookiecutter.postgres_port }}{% else %}!!!SET POSTGRESQL_PORT!!!{% endif %}:
-{%- if cookiecutter.use_pgadmin == "y" %}
+{%- if cookiecutter.use_pgadmin %}
     pgadmin_{{ cookiecutter.project_slug }}_{% if cookiecutter.postgres_port %}{{ cookiecutter.postgres_port }}{% else %}!!!SET POSTGRESQL_PORT!!!{% endif %}:
 {%- endif %}
