@@ -27,9 +27,9 @@
             "13": "Postgresql v13",
             "12": "Postgresql v12"
         },
-        "postgres_port": "uel est le port que vous souhaitez utiliser pour vous connecter à postgresql ?  (généré aléatoirement par défaut) ? ",
+        "postgres_port": "Quel est le port que vous souhaitez utiliser pour vous connecter à postgresql ?  (généré aléatoirement par défaut) ? ",
         "postgres_user": "Quel est le nom d'utilisateur que vous souhaitez utiliser pour vous connecter à postgresql ? ",
-        "postgres_password": "uel est le mot de passe que vous souhaitez utiliser pour vous connecter à postgresql ? ",
+        "postgres_password": "Quel est le mot de passe que vous souhaitez utiliser pour vous connecter à postgresql ? ",
         "postgres_dbname": "Quel est le nom de votre base de données ? ",
         "use_pgadmin": "Voulez-vous installer également PGAdmin ? ",
         "postgres_email": "Quel est l'email pour la connexion à PGAdmin ? ",
