@@ -1,18 +1,18 @@
-version: "3.8"
+version: "3"
 services:
     postgres:
-        container_name: {{ cookiecutter.project_slug }}_postgres_container
+        container_name: {{ cookiecutter.project_slug }}_postgres_container_{{ cookiecutter.postgres_port }}
         image: postgres:{{ cookiecutter.postgres_version }}
         working_dir: /app
         restart: always
         ports:
-            - "{{ cookiecutter.postgres_port }}:5432"
+            - "{% if cookiecutter.postgres_port %}{{ cookiecutter.postgres_port }}{% else %}!!!POSTGRES_PORT!!!{% endif %}:5432"
         environment:
             POSTGRES_USER: {{ cookiecutter.postgres_user }}
             POSTGRES_PASSWORD: {{ cookiecutter.postgres_password }}
             POSTGRES_DB: {{ cookiecutter.postgres_dbname }}
         volumes:
-            - "postgres_{{ cookiecutter.project_slug }}_{{ cookiecutter.postgres_port }}:/var/lib/postgresql"
+            - "postgres_{{ cookiecutter.project_slug }}_{{ cookiecutter.postgres_port }}:/var/lib/postgresql/data/"
 
 {%- if cookiecutter.use_pgadmin == "y" %}
 
