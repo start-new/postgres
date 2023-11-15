@@ -15,7 +15,7 @@
     "use_pgadmin": false,
     "postgres_email": "thierry@placepython.fr",
     "pgadmin_password": "{{ cookiecutter.postgres_password }}",
-    "pgadmin_port": "8765"
+    "pgadmin_port": "8765",
     "__prompts__": {
         "project_name": "Quel est le nom de votre projet ? ",
         "project_slug": "Quel est l'identifiant Python de votre projet (idéalement un mot) ? ",
