@@ -1,5 +1,5 @@
 {
-    "project_name": "db",
+    "project_name": "Mon projet",
     "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_') }}",
     "author_email": "thierry@placepython.fr",
     "postgres_version": [
@@ -9,10 +9,10 @@
         "13",
         "12"
     ],
-    "postgres_port": "5432",
-    "postgres_user": "postgres",
-    "postgres_password": "postgres",
-    "postgres_dbname": "{{ cookiecutter.postgres_user }}",
+    "postgres_port": "",
+    "postgres_user": "{{ cookiecutter.project_slug }}",
+    "postgres_password": "placePythonPassword",
+    "postgres_dbname": "{{ cookiecutter.project_slug }}",
     "use_pgadmin": "n",
     "pgadmin_email": "{{ cookiecutter.author_email }}",
     "pgadmin_password": "{{ cookiecutter.postgres_password }}",
