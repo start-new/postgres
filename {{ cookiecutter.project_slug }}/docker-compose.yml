@@ -12,7 +12,7 @@ services:
             POSTGRES_PASSWORD: {{ cookiecutter.postgres_password }}
             POSTGRES_DB: {{ cookiecutter.postgres_dbname }}
         volumes:
-            - "postgres_{{ cookiecutter.project_slug }}_{{ cookiecutter.postgres_port }}:/var/lib/postgresql/data/"
+            - "postgres_{{ cookiecutter.project_slug }}_{% if cookiecutter.postgres_port %}{{ cookiecutter.postgres_port }}{% else %}!!!SET POSTGRESQL_PORT!!!{% endif %}:/var/lib/postgresql/data/"
 
 {%- if cookiecutter.use_pgadmin %}
 
@@ -25,12 +25,12 @@ services:
         volumes:
             - "./pgadmin:/var/lib/pgadmin"
         ports:
-            - "{% if cookiecutter.postgres_port %}{{ cookiecutter.postgres_port }}{% else %}!!!SET POSTGRESQL_PORT!!!{% endif %}:80"
+            - "{{ cookiecutter.pgadmin_port }}:80"
         restart: always
 {%- endif %}
 
 volumes:
     postgres_{{ cookiecutter.project_slug }}_{% if cookiecutter.postgres_port %}{{ cookiecutter.postgres_port }}{% else %}!!!SET POSTGRESQL_PORT!!!{% endif %}:
 {%- if cookiecutter.use_pgadmin %}
-    pgadmin_{{ cookiecutter.project_slug }}_{% if cookiecutter.postgres_port %}{{ cookiecutter.postgres_port }}{% else %}!!!SET POSTGRESQL_PORT!!!{% endif %}:
+    pgadmin_{{ cookiecutter.project_slug }}_{{ cookiecutter.pgadmin_port }}:
 {%- endif %}
