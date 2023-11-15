@@ -1,7 +1,6 @@
 {
     "project_name": "Mon projet",
     "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_') }}",
-    "author_email": "thierry@placepython.fr",
     "postgres_version": [
         "latest",
         "15",
@@ -13,8 +12,27 @@
     "postgres_user": "{{ cookiecutter.project_slug }}",
     "postgres_password": "placePythonPassword",
     "postgres_dbname": "{{ cookiecutter.project_slug }}",
-    "use_pgadmin": "n",
-    "pgadmin_email": "{{ cookiecutter.author_email }}",
+    "use_pgadmin": false,
+    "postgres_email": "thierry@placepython.fr",
     "pgadmin_password": "{{ cookiecutter.postgres_password }}",
     "pgadmin_port": "8765"
+    "__prompts__": {
+        "project_name": "Quel est le nom de votre projet ? ",
+        "project_slug": "Quel est l'identifiant Python de votre projet (idéalement un mot) ? ",
+        "postgres_version": {
+            "__prompt__": "Quelle version de Postgresql désirez-vous utiliser ? ",
+            "latest": "La version la plus récente",
+            "15": "Postgresql v15",
+            "14": "Postgresql v14",
+            "13": "Postgresql v13",
+            "12": "Postgresql v12",
+        },
+        "postgres_port": "Quel est le port que vous désirez utiliser (généré aléatoirement par défaut) ? ",
+        "postgres_user": "Quel est le nom d'utilisateur que vous souhaitez utiliser ? ",
+        "postgres_dbname": "Quel est le nom de votre base de données ? ",
+        "use_pgadmin": "Voulez-vous installer également PGAdmin ? ",
+        "postgres_email": "Quel est l'email pour la connexion à PGAdmin ? ",
+        "pgadmin_password": "Quel est votre mot de passe pour la connection à PGAdmin ? ",
+        "pgadmin_port": "Quel est le port utilisé par PGAdmin ?"
+    }
 }
