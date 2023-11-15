@@ -21,11 +21,11 @@
         "project_slug": "Quel est l'identifiant Python de votre projet (idéalement un mot) ? ",
         "postgres_version": {
             "__prompt__": "Quelle version de Postgresql désirez-vous utiliser ? ",
-            "latest": "La version la plus récente",
+            "latest": "Version la plus récente",
             "15": "Postgresql v15",
             "14": "Postgresql v14",
             "13": "Postgresql v13",
-            "12": "Postgresql v12",
+            "12": "Postgresql v12"
         },
         "postgres_port": "Quel est le port que vous désirez utiliser (généré aléatoirement par défaut) ? ",
         "postgres_user": "Quel est le nom d'utilisateur que vous souhaitez utiliser ? ",
