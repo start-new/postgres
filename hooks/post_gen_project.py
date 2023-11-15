@@ -4,11 +4,11 @@ import shutil
 import secrets
 
 def move_files():
-    Path("{{ cookiecutter.project_slug }}").joinpath("docker-compose.yml").rename(Path("docker-compose.yml"))
+    Path("docker-compose.yml").rename(Path("../docker-compose.yml"))
 
 def delete_project_dir():
     """Removes the project folder."""
-    shutil.rmtree("{{ cookiecutter.project_slug }}")
+    shutil.rmtree("../{{ cookiecutter.project_slug }}")
 
 def set_flag(
     file_path, flag, length=64, value=None, formatted=None, *args, **kwargs
