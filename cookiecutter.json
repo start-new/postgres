@@ -1,39 +1,36 @@
 {
-    "project_name": "Mon projet",
-    "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_') }}",
+    "project_name": "My Project",
+    "_project_dir": "__db__",
     "postgres_version": [
-        "latest",
-        "15",
-        "14",
-        "13",
-        "12"
+        "postgres:latest",
+        "postgres:16",
+        "postgres:15",
+        "postgres:14",
+        "postgres:13",
+        "postgres:12"
     ],
-    "postgres_port": "",
-    "postgres_user": "{{ cookiecutter.project_slug }}",
-    "postgres_password": "placePythonPassword",
-    "postgres_dbname": "{{ cookiecutter.project_slug }}",
-    "use_pgadmin": false,
-    "pgadmin_email": "thierry@placepython.fr",
+    "postgres_user": "{{ cookiecutter.project_name.lower()|replace(' ', '-') }}",
+    "postgres_password": "{{ cookiecutter.project_name.lower()|replace(' ', '-') }}-password",
+    "postgres_dbname": "{{ cookiecutter.project_name.lower()|replace(' ', '-') }}",
+    "use_pgadmin": true,
+    "pgadmin_email": "myname@example.com",
     "pgadmin_password": "{{ cookiecutter.postgres_password }}",
-    "pgadmin_port": "8765",
     "__prompts__": {
-        "project_name": "Quel est le nom de votre projet ? ",
-        "project_slug": "Quel est l'identifiant Python de votre projet (idéalement un mot) ? ",
+        "project_name": "What's the name of your project ? ",
         "postgres_version": {
-            "__prompt__": "Quelle version de Postgresql désirez-vous utiliser ? ",
-            "latest": "Version la plus récente",
-            "15": "Postgresql v15",
-            "14": "Postgresql v14",
-            "13": "Postgresql v13",
-            "12": "Postgresql v12"
+            "__prompt__": "Which version of Postgresql whould you like to use ? ",
+            "postgres:latest": "Latest Postgresql",
+            "postgres:16": "Postgresql v16",
+            "postgres:15": "Postgresql v15",
+            "postgres:14": "Postgresql v14",
+            "postgres:13": "Postgresql v13",
+            "postgres:12": "Postgresql v12"
         },
-        "postgres_port": "Quel est le port que vous souhaitez utiliser pour vous connecter à postgresql ?  (généré aléatoirement par défaut) ? ",
-        "postgres_user": "Quel est le nom d'utilisateur que vous souhaitez utiliser pour vous connecter à postgresql ? ",
-        "postgres_password": "Quel est le mot de passe que vous souhaitez utiliser pour vous connecter à postgresql ? ",
-        "postgres_dbname": "Quel est le nom de votre base de données ? ",
-        "use_pgadmin": "Voulez-vous installer également PGAdmin ? ",
-        "pgadmin_email": "Quel est l'email pour la connexion à PGAdmin ? ",
-        "pgadmin_password": "Quel est votre mot de passe pour la connection à PGAdmin ? ",
-        "pgadmin_port": "Quel est le port utilisé par PGAdmin ?"
+        "postgres_user": "What is the name of your USER ? ",
+        "postgres_password": "What is your desired PASSWORD ? ",
+        "postgres_dbname": "What is the NAME of your database ? ",
+        "use_pgadmin": "Do you want PGAdmin ? ",
+        "pgadmin_email": "What is the login email for PGAdmin ? ",
+        "pgadmin_password": "What is the login password for PGAdmin ? "
     }
 }

@@ -1,0 +1,35 @@
+services:
+    postgres:
+        container_name: postgres_{{ cookiecutter.project_name.lower()|replace(' ', '_') }}_container_!!!SET POSTGRESQL_PORT!!!
+        image: {{ cookiecutter.postgres_version }}
+        working_dir: /app
+        restart: always
+        ports:
+            - "!!!SET POSTGRESQL_PORT!!!:5432"
+        environment:
+            POSTGRES_USER: {{ cookiecutter.postgres_user }}
+            POSTGRES_PASSWORD: {{ cookiecutter.postgres_password }}
+            POSTGRES_DB: {{ cookiecutter.postgres_dbname }}
+        volumes:
+            - "postgres_{{ cookiecutter.project_name.lower()|replace(' ', '_') }}_volume_!!!SET POSTGRESQL_PORT!!!:/var/lib/postgresql/data/"
+
+{%- if cookiecutter.use_pgadmin %}
+
+    pgadmin:
+        container_name: pgadmin_{{ cookiecutter.project_name.lower()|replace(' ', '_') }}_container_!!!SET PGADMIN_PORT!!!
+        image: dpage/pgadmin4
+        environment:
+            PGADMIN_DEFAULT_EMAIL: {{ cookiecutter.pgadmin_email }}
+            PGADMIN_DEFAULT_PASSWORD: {{ cookiecutter.pgadmin_password }}
+        volumes:
+            - "pgadmin_{{ cookiecutter.project_name.lower()|replace(' ', '_') }}_volume_!!!SET PGADMIN_PORT!!!:/var/lib/pgadmin"
+        ports:
+            - "!!!SET PGADMIN_PORT!!!:80"
+        restart: always
+{%- endif %}
+
+volumes:
+    postgres_{{ cookiecutter.project_name.lower()|replace(' ', '_') }}_volume_!!!SET POSTGRESQL_PORT!!!:
+{%- if cookiecutter.use_pgadmin %}
+    pgadmin_{{ cookiecutter.project_name.lower()|replace(' ', '_') }}_volume_!!!SET PGADMIN_PORT!!!:
+{%- endif %}
