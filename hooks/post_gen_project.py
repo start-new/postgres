@@ -4,7 +4,7 @@ import shutil
 import secrets
 
 def move_files():
-    Path("docker-compose.yml").rename(Path("../docker-compose.yml"))
+    Path("docker-compose.yml").rename(Path("../compose.yml"))
 
 def delete_project_dir():
     """Removes the project folder."""
