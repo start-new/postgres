@@ -28,7 +28,7 @@ def set_flag(
 def set_postgres_auto_port():
     postgres_auto_port = random.randint(10000, 65535)
     set_flag(
-        Path("docker-compose.yml"),
+        Path("compose.yml"),
         "!!!SET POSTGRESQL_PORT!!!",
         value=str(postgres_auto_port),
     )
