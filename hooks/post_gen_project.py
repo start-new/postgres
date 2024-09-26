@@ -26,29 +26,18 @@ def set_flag(file_path, flag, length=64, value=None, formatted=None, *args, **kw
     return value
 
 
-def set_postgres_auto_port():
-    postgres_auto_port = random.randint(10000, 65535)
+def set_mysql_auto_port():
+    mysql_auto_port = random.randint(10000, 65535)
     set_flag(
         Path("compose.yml"),
-        "!!!SET POSTGRESQL_PORT!!!",
-        value=str(postgres_auto_port),
+        "!!!SET MYSQL_PORT!!!",
+        value=str(mysql_auto_port),
     )
-    return postgres_auto_port
-
-
-def set_pgadmin_auto_port():
-    pgadmin_auto_port = random.randint(10000, 65535)
-    set_flag(
-        Path("compose.yml"),
-        "!!!SET PGADMIN_PORT!!!",
-        value=str(pgadmin_auto_port),
-    )
-    return pgadmin_auto_port
+    return mysql_auto_port
 
 
 def set_flags():
-    set_postgres_auto_port()
-    set_pgadmin_auto_port()
+    set_mysql_auto_port()
 
 
 def main():
